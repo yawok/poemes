@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h3>Create a poem</h3>
+  <form method="post">
+		{% csrf_token %}
+		{{ form }}
+		<button type='submit' class="btn btn-primary">Post</button>
+	</form>
+{% endblock content %}

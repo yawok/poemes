@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h3>Update "{{ poem }}"</h3>
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<section>
+			<button type="submit" class="btn btn-danger">Update</button>
+			<a href="{% url 'poems_list' %}" class="btn btn-primary">Cancel</a>
+		</section>
+	</form>
+{% endblock content %}

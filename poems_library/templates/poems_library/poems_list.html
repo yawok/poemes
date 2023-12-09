@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{% if poems %}
+		{% for poem in poems %}
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title"><a href="{% url 'poem' pk=poem.id %}">{{ poem.title }} </a></h5>
+				<p class="card-text">{{ poem.text | slice:":47" }}...</p>
+			</div>
+		</div>
+		<a href="{% url 'create_poem' %}">Post a poem</a>
+		{% endfor %}
+	{% else %}
+		<p>
+			No poems posted yet. <a href="{% url 'create_poem' %}">Post one?</a>
+		</p>
+	{% endif %}
+{% endblock content %}

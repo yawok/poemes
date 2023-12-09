@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="card">
+		<div class="card-body">
+		<h3 class="card-title">{{ poem }}</h3>
+		<h6 class="card-subtitle mb-2 text-body-secondary">Last modified: {{ poem.date_modified }}</h6>
+		<p class="card-text">{{ poem.text }}</p>
+		<a href="{% url 'update_poem' pk=poem.id %}" class="btn btn-primary">Update</a>
+		<a href="{% url 'delete_poem' pk=poem.id %}" class="btn btn-danger">Delete</a>
+		</div>
+	</div>
+{% endblock content %}
