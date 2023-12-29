@@ -9,11 +9,12 @@ DB_NAME = os.environ.get("DB_NAME", "")
 DB_USER = os.environ.get("DB_USER", "")
 DB_USER_PASSWORD = os.environ.get("DB_USER_PASSWORD", "")
 SECRET_KEY = os.environ.get("SECRET_KEY", "")
+DB_HOST = os.environ.get("DB_HOST", "localhost")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False #os.environ.get("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -68,7 +69,9 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": DB_NAME,
         "USER": DB_USER,
-        "PASSWORD": DB_USER_PASSWORD
+        "PASSWORD": DB_USER_PASSWORD,
+        "HOST": DB_HOST,
+        "PORT": "5432"
     }
 }
 
